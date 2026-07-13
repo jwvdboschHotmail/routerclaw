@@ -1,3 +1,5 @@
+![RouterClaw Logo](routerclaw_logo.png)
+
 # RouterClaw - OpenWrt Router AI Agent
 
 RouterClaw is a fully autonomous AI agent written in Go, specifically designed to run on resource-constrained embedded systems like OpenWrt routers (e.g., TP-Link WR740N with 32MB RAM / 4MB Flash). It acts as an always-on, intelligent "brain" for your home network.
@@ -29,6 +31,20 @@ RouterClaw is a fully autonomous AI agent written in Go, specifically designed t
 
 ## Setup & Compilation
 
+### 1. Minimal OpenWrt Firmware (4MB Flash Routers)
+Because older routers like the TP-Link WR740N only have 4MB of flash storage, the standard OpenWrt firmware includes too many packages (like the LuCI web interface and IPv6) and will not leave enough RAM/Storage to run Go binaries. You must build a custom, stripped-down OpenWrt image and flash it via a serial connection:
+1. Download the OpenWrt ImageBuilder for your router's architecture (e.g., `ath79/tiny`).
+2. Build a minimal image excluding LuCI and IPv6 to save space:
+   ```bash
+   make image PROFILE="tplink_tl-wr740n-v4" PACKAGES="-luci -luci-base -ipv6 -odhcp6c -ip6tables"
+   ```
+3. Because the factory firmware will likely reject this custom image, you must flash it via UART serial pins:
+   - Solder headers to the TX, RX, and GND pins on the router's motherboard.
+   - Connect via a USB-to-TTL serial adapter (or a bridged Raspberry Pi Pico).
+   - Interrupt the bootloader (U-Boot) by typing `tpl` during boot.
+   - Set up a TFTP server on your PC and transfer the `openwrt-sysupgrade.bin` directly into the router's memory, then flash it using `erase` and `cp.b` commands.
+
+### 2. RouterClaw Agent Configuration
 1. Configure your `config.json` with the appropriate API keys.
 2. Compile the binary for MIPS:
    ```bash
