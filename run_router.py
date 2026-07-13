@@ -14,11 +14,11 @@ if i == 0:
     child.expect('#', timeout=5)
     
     print("Dando permisos de ejecucion...")
-    child.sendline("chmod +x /tmp/nanoclaw")
+    child.sendline("chmod +x /tmp/routerclaw")
     child.expect('#', timeout=5)
     
-    print("Ejecutando NanoClaw en segundo plano...")
-    child.sendline("cd /tmp && ./nanoclaw > /tmp/nanoclaw.log 2>&1 &")
+    print("Ejecutando RouterClaw en segundo plano...")
+    child.sendline("cd /tmp && ./routerclaw > /tmp/routerclaw.log 2>&1 &")
     child.expect('#', timeout=5)
     
     print("El programa se ha lanzado de forma independiente. Cerrando SSH.")

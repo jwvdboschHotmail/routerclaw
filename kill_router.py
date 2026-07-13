@@ -6,8 +6,8 @@ i = child.expect(['password:', pexpect.EOF, pexpect.TIMEOUT], timeout=10)
 if i == 0:
     child.sendline(password)
     child.expect('#', timeout=10)
-    child.sendline("killall nanoclaw")
+    child.sendline("killall routerclaw")
     child.expect('#', timeout=5)
-    print("NanoClaw killed on router.")
+    print("RouterClaw killed on router.")
 else:
     print("Error SSH.")

@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	fmt.Println("Starting NanoClaw Minimal Agent...")
+	fmt.Println("Starting RouterClaw Minimal Agent...")
 
 	cfg, err := loadConfig("/root/config.json")
 	if err != nil {
@@ -38,5 +38,5 @@ func main() {
 	signal.Notify(c, os.Interrupt, syscall.SIGTERM)
 	<-c
 
-	fmt.Println("Shutting down NanoClaw...")
+	fmt.Println("Shutting down RouterClaw...")
 }

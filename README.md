@@ -1,6 +1,6 @@
-# NanoClaw - OpenWrt Router AI Agent
+# RouterClaw - OpenWrt Router AI Agent
 
-NanoClaw is a fully autonomous AI agent written in Go, specifically designed to run on resource-constrained embedded systems like OpenWrt routers (e.g., TP-Link WR740N with 32MB RAM / 4MB Flash). It acts as an always-on, intelligent "brain" for your home network.
+RouterClaw is a fully autonomous AI agent written in Go, specifically designed to run on resource-constrained embedded systems like OpenWrt routers (e.g., TP-Link WR740N with 32MB RAM / 4MB Flash). It acts as an always-on, intelligent "brain" for your home network.
 
 ## Features
 
@@ -19,10 +19,10 @@ NanoClaw is a fully autonomous AI agent written in Go, specifically designed to 
 
 ## Repository Contents
 
-- `*.go`: The core NanoClaw engine (Orchestrator, Telegram Bot, Google Integration, Web, LLM integration, etc.).
+- `*.go`: The core RouterClaw engine (Orchestrator, Telegram Bot, Google Integration, Web, LLM integration, etc.).
 - `config.json`: Configuration file storing API keys (DeepSeek, Telegram, Google) and worker node MAC addresses.
 - `scripts_pc/`: Helper scripts used on the host PC during deployment:
-  - `Arrancar_NanoClaw.bat`: A Windows batch script that automatically cross-compiles the Go binary and SCPs it to the router's RAM (`/tmp`) to restart the agent after a power loss.
+  - `Arrancar_RouterClaw.bat`: A Windows batch script that automatically cross-compiles the Go binary and SCPs it to the router's RAM (`/tmp`) to restart the agent after a power loss.
   - `restore_net.py`: A Python script to restore the router's network configuration via UART over a Raspberry Pi Pico bridge (useful if the router loses its switch configuration upon reboot).
   - `list_events.py`: A Python debug script to check Google Calendar events.
 - `*.py / *.sh`: Various testing and network interaction scripts used during development.
@@ -32,16 +32,16 @@ NanoClaw is a fully autonomous AI agent written in Go, specifically designed to 
 1. Configure your `config.json` with the appropriate API keys.
 2. Compile the binary for MIPS:
    ```bash
-   env GO111MODULE=on GOOS=linux GOARCH=mips GOMIPS=softfloat go build -trimpath -ldflags '-s -w' -o nanoclaw .
+   env GO111MODULE=on GOOS=linux GOARCH=mips GOMIPS=softfloat go build -trimpath -ldflags '-s -w' -o routerclaw .
    ```
 3. Transfer the binary to the router (ideally to `/tmp/` due to flash constraints):
    ```bash
-   scp nanoclaw root@192.168.1.2:/tmp/
+   scp routerclaw root@192.168.1.2:/tmp/
    ```
 4. Run it in the background:
    ```bash
-   cd /tmp && ./nanoclaw /root/config.json &
+   cd /tmp && ./routerclaw /root/config.json &
    ```
 
 ## Disclaimer
-NanoClaw was built as an experimental, autonomous AI. It has the ability to execute arbitrary shell commands on its host system. Protections have been added to prevent it from accidentally rebooting the router, but use with caution on production networks!
+RouterClaw was built as an experimental, autonomous AI. It has the ability to execute arbitrary shell commands on its host system. Protections have been added to prevent it from accidentally rebooting the router, but use with caution on production networks!

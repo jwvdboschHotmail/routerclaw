@@ -114,7 +114,7 @@ func (b *TelegramBot) handleCommand(text string) {
 	
 	// Temporary basic routing logic until LLM module is built
 	if text == "/ping" {
-		b.SendMessage("Pong! NanoClaw Orchestrator is online.")
+		b.SendMessage("Pong! RouterClaw Orchestrator is online.")
 		return
 	}
 

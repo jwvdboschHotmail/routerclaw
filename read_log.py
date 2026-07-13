@@ -6,7 +6,7 @@ i = child.expect(['password:', pexpect.EOF, pexpect.TIMEOUT], timeout=10)
 if i == 0:
     child.sendline(password)
     child.expect('#', timeout=10)
-    child.sendline("cat /tmp/nanoclaw.log")
+    child.sendline("cat /tmp/routerclaw.log")
     child.expect('#', timeout=10)
     print(child.before.decode('utf-8'))
 else:

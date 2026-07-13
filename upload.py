@@ -2,7 +2,7 @@ import pexpect
 import sys
 
 print("Iniciando transferencia SCP...")
-child = pexpect.spawn("scp -O -oHostKeyAlgorithms=+ssh-rsa -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null nanoclaw config.json root@192.168.1.1:/tmp/")
+child = pexpect.spawn("scp -O -oHostKeyAlgorithms=+ssh-rsa -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null routerclaw config.json root@192.168.1.1:/tmp/")
 
 i = child.expect(['password:', pexpect.EOF, pexpect.TIMEOUT], timeout=30)
 if i == 0:

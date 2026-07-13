@@ -6,7 +6,7 @@ if i == 0:
     child.sendline(password)
     child.expect('#', timeout=10)
     
-    child.sendline("ps | grep nanoclaw")
+    child.sendline("ps | grep routerclaw")
     child.expect('#', timeout=10)
     print(child.before.decode('utf-8'))
 else:
