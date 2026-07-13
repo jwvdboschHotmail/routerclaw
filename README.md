@@ -14,6 +14,14 @@ RouterClaw is a fully autonomous AI agent written in Go, specifically designed t
 - **Wake-on-LAN (WoL)**: Can magically wake up computers on your local network on command.
 - **Memory & Context**: Maintains conversational memory and state across interactions.
 
+### Screenshots in Action
+
+| Chat Example 1 | Chat Example 2 | Chat Example 3 |
+|:---:|:---:|:---:|
+| ![1](screenshots/feature_1.jpg) | ![2](screenshots/feature_2.jpg) | ![3](screenshots/feature_3.jpg) |
+| ![4](screenshots/feature_4.jpg) | ![5](screenshots/feature_5.jpg) | ![6](screenshots/feature_6.jpg) |
+
+
 ## Architecture
 
 - **Go Binary**: Compiled with `GOOS=linux GOARCH=mips GOMIPS=softfloat` specifically for MIPS architecture routers without hardware floating-point units.
