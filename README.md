@@ -40,7 +40,7 @@ RouterClaw is a fully autonomous AI agent written in Go, specifically designed t
 ## Setup & Compilation
 
 ### 1. Minimal OpenWrt Firmware (4MB Flash Routers)
-Because older routers like the TP-Link WR740N only have 4MB of flash storage, the standard OpenWrt firmware includes too many packages (like the LuCI web interface and IPv6) and will not leave enough RAM/Storage to run Go binaries. You must build a custom, stripped-down OpenWrt image and flash it via a serial connection:
+Because older routers like the [TP-Link TL-WR740N](https://openwrt.org/toh/tp-link/tl-wr740n) only have 4MB of flash storage, the standard OpenWrt firmware includes too many packages (like the LuCI web interface and IPv6) and will not leave enough RAM/Storage to run Go binaries. You must build a custom, stripped-down OpenWrt image and flash it via a serial connection:
 1. Download the OpenWrt ImageBuilder for your router's architecture (e.g., `ath79/tiny`).
 2. Build a minimal image excluding LuCI and IPv6 to save space:
    ```bash
