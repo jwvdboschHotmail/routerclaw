@@ -1,0 +1,23 @@
+{
+    "llm_provider": "deepseek",
+    "llm_api_key": "YOUR_DEEPSEEK_API_KEY",
+    "telegram_bot_token": "YOUR_TELEGRAM_BOT_TOKEN",
+    "telegram_admin_chat_id": 123456789,
+    "gmail_client_id": "YOUR_GCP_CLIENT_ID",
+    "gmail_client_secret": "YOUR_GCP_CLIENT_SECRET",
+    "gmail_refresh_token": "YOUR_OAUTH_REFRESH_TOKEN",
+    "worker_nodes": [
+        {
+            "id": "pc_principal",
+            "mac_address": "00:11:22:33:44:55",
+            "ip_address": "",
+            "port": 8080,
+            "capabilities": [
+                "word",
+                "excel",
+                "browser"
+            ]
+        }
+    ],
+    "rss_feeds": []
+}
