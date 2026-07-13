@@ -1,5 +1,8 @@
 import pexpect
 import sys
+from ssh_helper import get_ssh_password
+
+password = get_ssh_password()
 
 print("Iniciando transferencia SCP...")
 child = pexpect.spawn("scp -O -oHostKeyAlgorithms=+ssh-rsa -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null routerclaw config.json root@192.168.1.1:/tmp/")
