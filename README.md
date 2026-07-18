@@ -69,3 +69,5 @@ Because older routers like the [TP-Link TL-WR740N](https://openwrt.org/toh/tp-li
 
 ## Disclaimer
 RouterClaw was built as an experimental, autonomous AI. It has the ability to execute arbitrary shell commands on its host system. Protections have been added to prevent it from accidentally rebooting the router, but use with caution on production networks!
+
+New updates soon
